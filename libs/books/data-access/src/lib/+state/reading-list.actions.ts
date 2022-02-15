@@ -1,4 +1,4 @@
-import { createAction, props } from '@ngrx/store';
+import { Action, createAction, props } from '@ngrx/store';
 import { Book, ReadingListItem } from '@tmo/shared/models';
 
 export const init = createAction('[Reading List] Initialize');
@@ -14,7 +14,7 @@ export const loadReadingListError = createAction(
 
 export const addToReadingList = createAction(
   '[Books Search Results] Add to list',
-  props<{ book: Book }>()
+  props<{ book: Book, skipUndo?: boolean }>()
 );
 
 export const failedAddToReadingList = createAction(
@@ -29,7 +29,7 @@ export const confirmedAddToReadingList = createAction(
 
 export const removeFromReadingList = createAction(
   '[Books Search Results] Remove from list',
-  props<{ item: ReadingListItem }>()
+  props<{ item: ReadingListItem, skipUndo?: boolean }>()
 );
 
 export const failedRemoveFromReadingList = createAction(
@@ -40,4 +40,9 @@ export const failedRemoveFromReadingList = createAction(
 export const confirmedRemoveFromReadingList = createAction(
   '[Reading List API] Confirmed remove from list',
   props<{ item: ReadingListItem }>()
+);
+
+export const undoAction = createAction(
+  '[Reading List API] Undo Add or Remove Action',
+  props<{ message: string, undoAction: Action }>()
 );
