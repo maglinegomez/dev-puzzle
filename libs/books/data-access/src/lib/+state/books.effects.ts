@@ -12,7 +12,7 @@ export class BooksEffects {
     this.actions$.pipe(
       ofType(BooksActions.searchBooks),
       switchMap((action) =>
-        this.http.get<Book[]>(`/api/books/search?q=${action.term}`).pipe(
+        this.http.get<Book[]>(`/api/books/search?q=${action.searchTerm}`).pipe(
           map((data) => BooksActions.searchBooksSuccess({ books: data })),
           catchError((error) => of(BooksActions.searchBooksFailure({ error })))
         )
@@ -23,5 +23,5 @@ export class BooksEffects {
   constructor(
     private readonly actions$: Actions,
     private readonly http: HttpClient
-  ) {}
+  ) { }
 }

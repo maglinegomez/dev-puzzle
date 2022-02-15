@@ -3,7 +3,7 @@ import { Book } from '@tmo/shared/models';
 
 export const searchBooks = createAction(
   '[Books Search Bar] Search',
-  props<{ term: string }>()
+  props<{ searchTerm: string }>()
 );
 
 export const searchBooksSuccess = createAction(

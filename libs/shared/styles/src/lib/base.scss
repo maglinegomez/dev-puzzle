@@ -24,9 +24,14 @@ input {
 
 a {
   cursor: pointer;
-  color: $pink-accent;
+  color: $pink-dark;
 
   &:hover {
     color: $pink-dark;
   }
 }
+button:focus{
+  outline: none; 
+  box-shadow: 0 0 0 3px $blue-light !important;
+}
+
