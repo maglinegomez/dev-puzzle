@@ -30,7 +30,7 @@ describe('BooksEffects', () => {
   describe('loadBooks$', () => {
     it('should work', done => {
       actions = new ReplaySubject();
-      actions.next(BooksActions.searchBooks({ term: '' }));
+      actions.next(BooksActions.searchBooks({ searchTerm: '' }));
 
       effects.searchBooks$.subscribe(action => {
         expect(action).toEqual(
