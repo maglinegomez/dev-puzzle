@@ -28,9 +28,8 @@
           <p [innerHTML]="b.description"></p>
           <div>
             <button mat-flat-button color="primary" (click)="addBookToReadingList(b)" [disabled]="b.isAdded"
-              aria-label="Want to Read">
-              Want to Read
-            </button>
+              aria-label="Want to Read" data-testing="add-to-reading-list">{{b.finished? 'Finished' : 'Want to Read'
+              }}</button>
           </div>
         </div>
       </div>

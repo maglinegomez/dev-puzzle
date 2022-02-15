@@ -19,6 +19,14 @@
     flex-direction: column;
     justify-content: center;
   }
+
+  &.finished {
+    text-decoration: line-through;
+  }
+
+  > .actions {
+    flex-direction: row;
+  }
 }
 
 .reading-list-item--cover {
@@ -34,7 +42,8 @@
 }
 
 .reading-list-item--details--title,
-.reading-list-item--details--author {
+.reading-list-item--details--author,
+.reading-list-item--details--date {
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;

@@ -32,6 +32,25 @@ describe('Books Reducer', () => {
       expect(result.ids.length).toEqual(3);
     });
 
+    it('markBookAsRead should mark the books as finished in reading list', () => {
+      const action = ReadingListActions.markBookAsRead({ item: createReadingListItem('A') });
+
+      const result = reducer(state, action);
+
+      expect(result.entities['A'].finished).toEqual(true);
+
+      expect(result.ids).toEqual(['A', 'B']);
+    });
+
+    it('markBookAsRead should failed to mark as read in reading list', () => {
+      const action = ReadingListActions.failedMarkBookAsRead({ item: createReadingListItem('A') });
+
+      const result = reducer(state, action);
+
+      expect(result.entities['A'].finished).toEqual(undefined);
+    });
+
+
     it('failedAddToReadingList should undo book addition to the state', () => {
       const action = ReadingListActions.failedAddToReadingList({
         book: createBook('B')
